@@ -4,7 +4,7 @@ require_once 'conexao.php';
 
 //VERIFICA SE O USUARIO TEM PERMISSOA DE ADM
 if ($_SESSION['perfil'] !=1){
-    echo "<script>alert('Acesso Negado!');windows.location.href = 'principal.php';</script>"
+    echo "<script>alert('Acesso Negado!');windows.location.href = 'principal.php';</script>";
     exit();
 }
 
@@ -14,7 +14,7 @@ $usuario = null;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(!empty($_POST['busca_usuario'])){
-        $busca = trimb($_POST['busca_usuario']);
+        $busca = trim($_POST['busca_usuario']);
 
         // VERIFICA SE A BUSCA É UM NUMERO (id) OU UM nome
         if(is_numeric($busca)){
@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         } else{
             $sql = "SELECT * FROM usuario WHERE nome LIKE :busca_nome";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':busca_nome',"$busca%",PDO::PARAM_STR);
+            $stmt->bindValue(':busca_nome',"$busca%",PDO::PARAM_STR);
         }
 
         $stmt->execute();
@@ -75,10 +75,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <option value="1" <?=$usuario['id_perfil'] == 1 ? 'select':''?>>Administrador</option>
                 <option value="2" <?=$usuario['id_perfil'] == 2 ? 'select':''?>>Secretária</option>
                 <option value="3" <?=$usuario['id_perfil'] == 3 ? 'select':''?>>Almoxarife</option>
-                <option value="4" <?=$usuario['id_perfil'] == 4 ? 'select':''?>>Cliente</option>
-            
+                <option value="4" <?=$usuario['id_perfil'] == 4 ? 'select':''?>>Cliente</option>   
+        </select>
 
-
-         </form>
+        <!-- SE O USUARIO LOGADO FOR ADM, EXIBIR OPCAO DE ALTERAR SENHA -->
+        <?php if($_SESSION['perfil'] == 1): ?>
+            <label for="nova_senha">Nova senha</label>
+            <input type="password" id="nova_senha" name="nova_senha">
+        <?php endif;?>
+        
+            <button type="submit">Alterar</button>
+            <button type="reset">Cancelar</button>
+        </form>
+            <?php endif;?>
+            <a href="principal.php">Voltar</a>
 </body>
 </html>
