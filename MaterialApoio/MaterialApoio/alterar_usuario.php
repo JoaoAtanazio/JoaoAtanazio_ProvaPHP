@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'permissoes.php';
+require_once 'dropdown.php';
 
 //VERIFICA SE O USUARIO TEM PERMISSOA DE ADM
 if ($_SESSION['perfil'] !=1){
@@ -88,6 +90,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <button type="reset">Cancelar</button>
         </form>
             <?php endif;?>
-            <a href="principal.php">Voltar</a>
+            <a href="principal.php" class="btn-voltar">Voltar</a>
 </body>
 </html>

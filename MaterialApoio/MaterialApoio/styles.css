@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -142,8 +148,7 @@ label {
 /* Ajusta os campos de entrada */
 input[type="text"],
 input[type="email"],
-input[type="password"],
-select {
+input[type="password"] {
     width: 80%; /* Ocupa toda a largura do formulário */
     padding: 8px;
     margin-bottom: 10px;
@@ -151,12 +156,21 @@ select {
     border-radius: 5px;
     font-size: 16px;
 }
+select{
+    width: 80%; /* Ocupa toda a largura do formulário */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 /* Ajusta os botões */
 button {
     width: 80%;
     padding: 10px;
-    background-color: #007bff; /* Azul bonito */
+    background-color: #000000; /* Azul bonito */
     color: white;
     border: none;
     border-radius: 5px;
@@ -166,5 +180,70 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+    background-color: #2E2E2E; /* Azul mais escuro ao passar o mouse */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+/* Cabeçalho da tabela */
+thead th {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Linhas da tabela */
+tbody tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Efeito "table-striped" (linhas zebradas) */
+tbody tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Efeito "table-hover" (hover nas linhas) */
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* Células da tabela */
+td {
+  padding: 0.75rem;
+  vertical-align: top;
+}
+
+/* Links "Alterar" e "Excluir" */
+td a {
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+td a:first-child {
+  color: #000000; /* Azul (Alterar) */
+}
+
+td a:last-child {
+  color: #dc3545; /* Vermelho (Excluir) */
+}
+.btn-voltar{
+    width: 80%;
+    padding: 10px;
+    background-color: #000000; /* Azul bonito */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.btn-voltar:hover{
+    background-color: #2E2E2E;
 }

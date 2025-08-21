@@ -1,6 +1,8 @@
 <?php
 session_start();
-require 'conexao.php';
+require_once 'conexao.php';
+require_once 'permissoes.php';
+require_once 'dropdown.php';
 
 // VERIFICA SE O USUARIO TEM PERMISSAO DE ADM
 if($_SESSION['perfil']!=1 ){
@@ -69,6 +71,6 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
         <p> Nenhum usuario encontrado
     <?php endif;?>
     
-    <a href="principal.php">Voltar</a>
+    <a href="principal.php" class="btn-voltar">Voltar</a>
 </body>
 </html>

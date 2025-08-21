@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'permissoes.php';
+require_once 'dropdown.php';
+
 
 // VERIFICA SE O USUARIO TEM PERMISSAO DE adm OU secretaria
 if($_SESSION['perfil']!=1 && $_SESSION['perfil']!=2){
@@ -38,7 +41,6 @@ $usuarios = $stmt->fetchALL(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <title>Buscar Usuário</title>
 </head>
 <body>
@@ -76,6 +78,6 @@ $usuarios = $stmt->fetchALL(PDO::FETCH_ASSOC);
         <p> Nenhum usuario encontrado.</p>
     <?php endif;?>
     
-    <a href="principal.php"> VOLTAR</a>
+    <a href="principal.php" class="btn-voltar"> VOLTAR</a>
 </body>
 </html>
