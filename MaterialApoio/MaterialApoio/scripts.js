@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Função para buscar sugestões de usuários enquanto digita
 function buscarSugestoes() {
-    let busca = document.getElementById("busca_usuario").value;
+    let busca = document.getElementById("busca_fornecedor").value;
     
     // Se o usuário digitou menos de 2 caracteres, limpa as sugestões
     if (busca.length < 2) {
@@ -32,8 +32,8 @@ function buscarSugestoes() {
             let sugestoesHTML = "<ul>";
             
             // Corrigido: Uso correto de interpolação de strings com template literals
-            data.forEach(usuario => {
-                sugestoesHTML += `<li onclick="selecionarUsuario('${usuario.id_usuario}', '${usuario.nome}')">${usuario.nome}</li>`;
+            data.forEach(fornecedor => {
+                sugestoesHTML += `<li onclick="selecionarfornecedor('${fornecedor.id_fornecedor}', '${fornecedor.nome_fornecedor}')">${fornecedor.nome_fornecedor}</li>`;
             });
 
             sugestoesHTML += "</ul>";
@@ -43,7 +43,7 @@ function buscarSugestoes() {
 }
 
 // Função para selecionar um usuário da lista de sugestões
-function selecionarUsuario(id, nome) {
-    document.getElementById("busca_usuario").value = nome;
+function selecionarfornecedor(id, nome) {
+    document.getElementById("busca_fornecedor").value = nome;
     document.getElementById("sugestoes").innerHTML = "";
 }
